@@ -43,12 +43,28 @@ def make_new_student(first_name, last_name, github):
     CONN.commit()
     print "Successfully added student: %s %s" % (first_name, last_name)
 
+def new_grade(first_name, last_name, project, grade):
+    query = """INSERT INTO grades (student_github, project_title, grade) VALUES ((SELECT github FROM students 
+                WHERE last_name = ?), ?, ?)"""
+    DB.execute(query,(last_name, project, grade))
+    CONN.commit()
+    print "Succesfully added grade %r for project %s to %s %s" % (grade, project, first_name, last_name)
+
+def get_grades_by_student(first_name, last_name):
+    query = """SELECT project_title, grade FROM grades
+        INNER JOIN Students on (Students.github=Grades.student_github)
+        WHERE students.first_name = ? AND students.last_name = ?"""
+    DB.execute(query, (first_name, last_name))
+    row = DB.fetchall()
+    print """\
+Grades for: %s %s
+Project Title: %s
+Grade: %r""" %(first_name, last_name, row[0], row[1])
 
 def connect_to_db():
     global DB, CONN
     CONN = sqlite3.connect("hackbright.db")
     DB = CONN.cursor()
-
 
 def main():
     connect_to_db()
@@ -81,6 +97,14 @@ def main():
             # make_new_project(tokens_multistring[0].split()[1], tokens_multistring[1], tokens_multistring[2].strip())
         elif command == "get_project":
             get_project_by_title(*args)
+        elif command == "new_grade":
+            input_project = raw_input("What is the project title? ")
+            input_name = raw_input("Student name? ")
+            input_grade = raw_input("Grade? ")
+
+            new_grade(input_name.split()[0], input_name.split()[1], input_project, input_grade)
+        elif command == "get_grades_by_student":
+            get_grades_by_student(*args)
 
     CONN.close()
 
