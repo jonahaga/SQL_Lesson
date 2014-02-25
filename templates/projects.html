@@ -1,26 +1,46 @@
 <html>
 <head>
-    <title>Projects</title>
+    <title>Student grades for {{project_name}}</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-    <h1>Student grades for {{project_name}}</h1>
 
-        <table id="grades">
-            <tr>
-                <td class="grade_header">Student Name</td>
-                <td class="grade_header">Grade</td>
-            </tr>
-            {% for item in projects %}
-            <tr>
-                <td>{{item[0]}} {{item[1]}}</td>
-                <td>{{item[2]}}</td>
-            </tr>
-            {% endfor %}
+	<div id="wrapper">
+        <div id="header">
+            <div class="clearfix">
+            	<div class="size1of5">
+            		<a href="/"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/174658_445086685511745_446125036_n.jpg" alt="Hackbright Logo" width="80" /></a>
+            	</div>
+            	<div class="size4of5">
+            		<h1><a href="/"><span>Hackbright Academy</span>
+            			Student Database</a></h1>
+            	</div>
 
+            </div>
+        </div>
 
-        </table>
-
+		<div class="content">
+		    <h2>Student grades for <span class="highlight">{{project_name}}</span></h2>			
+		    
+	        <table id="grades">
+	            <tr>
+	                <td class="grade_header">Student Name</td>
+	                <td class="grade_header">Student Github</td>
+	                <td class="grade_header">Grade</td>
+	            </tr>
+	            {% for item in projects %}
+	            <tr>
+	                <td>{{item[0]}} {{item[1]}}</td>
+	                <td><a href="/student?github={{item[3]}}" title="View {{item[0]}}'s Student Info Page">{{item[3]}}</td>
+	                <td>{{item[2]}}</td>
+	            </tr>
+	            {% endfor %}
+	        </table>
+		</div>	
+	</div>
 
 </body>
 

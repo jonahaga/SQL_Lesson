@@ -1,28 +1,49 @@
+
 <html>
 <head>
     <title>Hackbright App</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-    <h1>Student: {{last_name}}, {{first_name}}</h1>
-    <h2>Github account: {{github}}</h2>
 
-    <h3>{{first_name}}'s Grades</h3>
+    <div id="wrapper">
+        <div id="header">
+            <div class="clearfix">
+            	<div class="size1of5">
+            		<a href="/"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/174658_445086685511745_446125036_n.jpg" alt="Hackbright Logo" width="80" /></a>
+            	</div>
+            	<div class="size4of5">
+            		<h1><a href="/"><span>Hackbright Academy</span>
+            			Student Database</a></h1>
+            	</div>
 
-        <table id="grades">
-            <tr>
-                <td class="grade_header">Project Name</td>
-                <td class="grade_header">Grade</td>
-            </tr>
-            {% for item in grade %}
-            <tr>
-                <td><a href="/project?projects={{item[0]}}">{{item[0]}}</a></td>
-                <td>{{item[1]}}</td>
-            </tr>
-            {% endfor %}
+            </div>
+        </div>
+        
+        <div class="content">
+        	<h2 class="student_info">Student: <span>{{last_name}}, {{first_name}}</span></h2>
+        	<h2 class="github">Github account: <span>{{github}}</span></h2>
+        	
+			<h3><span>{{first_name}}'s Grades</span></h3>
 
-
-        </table>
+            <table id="grades">
+                <tr>
+                    <td class="grade_header">Project Name</td>
+                    <td class="grade_header">Grade</td>
+                </tr>
+                {% for item in grade %}
+                <tr>
+                    <td><a href="/project?projects={{item[0]}}">{{item[0]}}</a></td>
+                    <td>{{item[1]}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
 
 </body>
 
