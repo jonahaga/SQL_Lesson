@@ -1,0 +1,185 @@
+/* @override 
+	http://localhost:5000/css/styles.css
+	http://localhost:5000/static/styles.css */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline; }
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block }
+
+body { line-height: 1 }
+
+ol, ul { list-style: none }
+
+blockquote, q { quotes: none }
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none; }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0; }
+
+body { 
+	background: #f9f9f9 url('debut_light.png') repeat;
+	font-family: 'Open Sans', sans-serif;
+	color: #666; }
+
+.clearfix:before, 
+.clearfix:after { content: " "; display: table; }
+.clearfix:after { clear: both; }
+
+.size1of1{float:left; width:100%;}
+.size1of2, .size2of4 {float:left; width:50%;}
+.size1of3{float:left; width:33%;}
+.size2of3{float:left; width:66%;}
+.size1of4{float:left; width:25%;}
+.size3of4{float:left; width:75%;}
+.size1of5{float:left; width:20%;}
+.size2of5{float:left; width:40%;}
+.size3of5{float:left; width:60%;}
+.size4of5{float:left; width:80%;}
+.gutter {padding-right:30px;}
+.pad {padding:20px 0px;}
+.r-pad { padding-right: 20px; }
+.l-pad { padding-left: 20px; }
+
+#wrapper	{
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	margin: 15px auto;
+	padding: 30px 30px 50px;
+	width: 800px; }
+	
+#header {
+	margin-bottom: 15px;
+	width: 500px; }
+	
+	#header a {
+		color: #eb462a;
+	}
+	
+h1 {
+	color: #eb462a;
+	font-size: 200%;
+	font-weight: 700;
+	margin-bottom: 20px; }
+	
+	#header h1 span { font-weight: normal; }
+
+a {
+	color: #428bca;
+	text-decoration: none; }
+	
+.nav,
+.content {
+	border-top: 4px solid #eb462a;
+	padding-top: 30px; }
+
+.nav {
+	font-size: .9em; 
+	text-align: center; }
+	
+	.nav > div > div:hover { background-color: yellow; }
+		
+	.nav span {
+		font-weight: bold;
+		font-size: 1.1em;
+		display: block; }
+		
+	.nav a:hover {
+		font-size: 1.1em;
+		color: #eb462a; }
+		
+form label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px; }
+
+input[type="text"] {
+    -moz-border-radius: 4px;
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-transition: border linear .2s, box-shadow linear .2s;
+    -o-transition: border linear .2s, box-shadow linear .2s;
+    -webkit-border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border linear .2s, box-shadow linear .2s;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    color: #555555;
+    display: block;
+    font-size: 14px;
+    height: 25px;
+    margin-bottom: 20px;
+    min-width: 300px;
+    padding: 4px 6px;
+    transition: border linear .2s, box-shadow linear .2s; }
+
+input[type="text"]:focus {
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+    /* IE6-9 */
+    border-color: rgba(82, 168, 236, 0.8);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+    outline: 0;
+    outline: thin dotted \9; }
+
+table {
+	margin: 10px auto;
+	width: 80%; }
+	
+	table td {
+		border: 1px solid #ddd;
+		padding: 10px; } 
+	
+		table td.grade_header {
+			background-color: #eee;
+			font-weight: bold; }
+			
+h2 {
+	color: #1f5081;
+	font-size: 1.8em;
+	margin-bottom: 35px; }
+
+h2.github,
+h2.student_info {
+	font-size: 1.3em; 
+	margin-bottom: 5px; }
+	
+	h2.github { margin-bottom: 25px; }
+	
+	h2.github span,
+	h2.student_info span { font-weight: bold; }
+	
+h3 {
+	color: #064469;
+	font-size: 1.2em;
+	font-weight: bold;
+	text-align: center; }
+	
+	h3 span,
+	span.highlight {
+		background-color: #fcff94;
+		padding: 2px 8px; }
+		
