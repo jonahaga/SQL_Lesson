@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>Projects</title>
+</head>
+
+<body>
+    <h1>Student grades for {{project_name}}</h1>
+
+        <table id="grades">
+            <tr>
+                <td class="grade_header">Student Name</td>
+                <td class="grade_header">Grade</td>
+            </tr>
+            {% for item in projects %}
+            <tr>
+                <td>{{item[0]}} {{item[1]}}</td>
+                <td>{{item[2]}}</td>
+            </tr>
+            {% endfor %}
+
+
+        </table>
+
+
+</body>
+
+</html>

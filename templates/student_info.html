@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Hackbright App</title>
+</head>
+
+<body>
+    <h1>Student: {{last_name}}, {{first_name}}</h1>
+    <h2>Github account: {{github}}</h2>
+
+    <h3>{{first_name}}'s Grades</h3>
+
+        <table id="grades">
+            <tr>
+                <td class="grade_header">Project Name</td>
+                <td class="grade_header">Grade</td>
+            </tr>
+            {% for item in grade %}
+            <tr>
+                <td><a href="/project?projects={{item[0]}}">{{item[0]}}</a></td>
+                <td>{{item[1]}}</td>
+            </tr>
+            {% endfor %}
+
+
+        </table>
+
+</body>
+
+</html>
