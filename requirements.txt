@@ -1,0 +1,9 @@
+Pygments==1.6
+argparse==1.2.1
+cssselect==0.9.1
+howdoi==1.1.6
+lxml==3.3.1
+pyquery==1.2.8
+requests==2.2.1
+requests-cache==0.4.4
+wsgiref==0.1.2
