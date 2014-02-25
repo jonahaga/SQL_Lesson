@@ -9,6 +9,7 @@ def get_student_by_github(github):
     row = DB.fetchone()
     return row
 
+
 def get_project_by_title(title):
     query = """SELECT title, description FROM projects WHERE title = ?"""
     DB.execute(query, (title,))
@@ -17,11 +18,12 @@ def get_project_by_title(title):
 Project Title: %s
 Description: %s"""%(row[1], row[2])
 
+
 def make_new_project(title, description, max_grade):
     query = """INSERT into Projects (title, description, max_grade) VALUES (?, ?, ?)"""
     DB.execute(query, (title, description, max_grade))
     CONN.commit()
-    print "Succesfully added project: %s" % (title)
+
 
 def get_grade_by_project(project_title, first_name, last_name):
     query = """SELECT Students.first_name, students.last_name, grades.project_title, grades.grade
@@ -37,25 +39,27 @@ Grade: %d"""%(row[2], row[0], row[1], row[3])
 
 
 def get_all_grades_by_project(title):
-    query = """SELECT first_name, last_name, grade FROM Grades 
-    JOIN Students 
+    query = """SELECT first_name, last_name, grade, student_github FROM Grades 
+    JOIN Students ON (students.github=Grades.student_github)
     WHERE project_title = ?"""
     DB.execute(query, (title,))
     row=DB.fetchall()
     return row
 
+
 def make_new_student(first_name, last_name, github):
     query = """INSERT into Students values (?, ?, ?)"""
     DB.execute(query, (first_name, last_name, github))
     CONN.commit()
-    print "Successfully added student: %s %s" % (first_name, last_name)
+
 
 def new_grade(first_name, last_name, project, grade):
     query = """INSERT INTO grades (student_github, project_title, grade) VALUES ((SELECT github FROM students 
                 WHERE last_name = ?), ?, ?)"""
-    DB.execute(query,(last_name, project, grade))
+    DB.execute(query, (last_name, project, grade))
     CONN.commit()
     print "Succesfully added grade %r for project %s to %s %s" % (grade, project, first_name, last_name)
+
 
 def get_grades_by_student(first_name, last_name):
     query = """SELECT project_title, grade FROM grades
@@ -65,10 +69,12 @@ def get_grades_by_student(first_name, last_name):
     row = DB.fetchall()
     return row
 
+
 def connect_to_db():
     global DB, CONN
     CONN = sqlite3.connect("hackbright.db")
     DB = CONN.cursor()
+
 
 def main():
     connect_to_db()
