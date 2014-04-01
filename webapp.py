@@ -95,16 +95,6 @@ def add_grade_complete():
         return html
 
 
-# def new_grade(first_name, last_name, project, grade):
-#     query = """INSERT INTO grades (student_github, project_title, grade) VALUES ((SELECT github FROM students 
-#                 WHERE last_name = ?), ?, ?)"""
-#     DB.execute(query, (last_name, project, grade))
-#     CONN.commit()
-#     print "Succesfully added grade %r for project %s to %s %s" % (grade, project, first_name, last_name)
-
-
-
-
 
 if __name__ == "__main__":
     app.run(debug=True)
